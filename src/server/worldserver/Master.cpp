@@ -154,9 +154,9 @@ public:
             std::string stringip = sConfig.GetStringDefault ("Ra.IP", "0.0.0.0");
             ipaddr_t raip;
             if (!Utility::u2ip (stringip, raip))
-                sLog.outError ("Trinity RA can not bind to ip %s", stringip.c_str ());
+                sLog.outError ("Cactus RA can not bind to ip %s", stringip.c_str ());
             else if (RAListenSocket.Bind (raip, raport))
-                sLog.outError ("Trinity RA can not bind to port %d on %s", raport, stringip.c_str ());
+                sLog.outError ("Cactus RA can not bind to port %d on %s", raport, stringip.c_str ());
             else
             {
                 h.Add (&RAListenSocket);
@@ -218,17 +218,26 @@ int Master::Run()
     sLog.outString( "%s (core-daemon)", _FULLVERSION );
     sLog.outString( "<Ctrl-C> to stop.\n" );
 
-    sLog.outString( "CCCCCCCC     A     CCCCCCCC TTTTTTTTTT UU     UU SSSSSSSS");
-    sLog.outString( "CC         AA AA   CC           TT     UU     UU SS");
-    sLog.outString( "CC       AA     AA CC           TT     UU     UU SS");
-    sLog.outString( "CC       AA     AA CC           TT     UU     UU SS       EEEE MM MM U  U");
-    sLog.outString( "CC       AAAAAAAAA CC           TT     UU     UU SSSSSSSS E    M M M U  U");
-    sLog.outString( "CC       AA     AA CC           TT     UU     UU       SS EEEE M   M U  U");
-    sLog.outString( "CC       AA     AA CC           TT     UU     UU       SS E    M   M U  U");
-    sLog.outString( "CCCCCCCC AA     AA CCCCCCCC     TT     UUUUUUUUU SSSSSSSS EEEE M   M UUUU");
-    sLog.outString( "");
+    sLog.outString( " ");
+	sLog.outString( " Former codename: Long Cold Winter ");
+    sLog.outString( "        ____ .                  ___ ");	            
+    sLog.outString( "      /\\'   _, \\              / \\  \\__ .  ");  
+    sLog.outString( "      \\ \\  \\ \\__\\     __       _.\\  ,_ \\  __  __.  ___. "); 
+    sLog.outString( "       \\ \\  \\/__/.  /'__`\\   /'__`\\  \\_//\\ '\\/\\ '\\/',__\\ ");
+    sLog.outString( "        \\ \\  \\_\\ '\\/\\ \\_\\.\\_/\\ \\__.\\  \\_\\.\\  \\_\\  \\\\__,`\\  ");
+    sLog.outString( "         \\ \\'____ /\\ \\__/.\\_\\ \\____\\\\_'__\\ \\_`____//\\__./    ");    
+    sLog.outString( "          \\/____/   \\/__/\\/_/\\/___/\\/__ _/ \\`____`/\\/__/  ");
+    sLog.outString( "       CatcusEmu 'Realm's First' Custom TrinityCore Cataclysm Communtiy Release.     ");
+    sLog.outString( "                        == http://www.cactusemu.com ==                ");
 
-    /// worldd PID file creation
+#ifdef USE_SFMT_FOR_RNG
+    sLog->outString("\n");
+    sLog->outString("SFMT has been enabled as the random number generator, if worldserver");
+    sLog->outString("freezes or crashes randomly, first, try disabling SFMT in CMAKE configuration");
+    sLog->outString("\n");
+#endif //USE_SFMT_FOR_RNG
+
+	/// worldd PID file creation
     std::string pidfile = sConfig.GetStringDefault("PidFile", "");
     if(!pidfile.empty())
     {
@@ -322,7 +331,7 @@ int Master::Run()
         if(Prio)
         {
             if(SetPriorityClass(hProcess,HIGH_PRIORITY_CLASS))
-                sLog.outString("TrinityCore process priority class set to HIGH");
+                sLog.outString("CactusEMU process priority class set to HIGH");
             else
                 sLog.outError("Can't set Trinityd process priority class.");
             sLog.outString("");
@@ -549,7 +558,7 @@ bool Master::_StartDB()
 
     sWorld.LoadDBVersion();
 
-    sLog.outString("Using World DB: %s", sWorld.GetDBVersion());
+    sLog.outString("Using World DataBase: %s", sWorld.GetDBVersion());
     sLog.outString("Using creature EventAI: %s", sWorld.GetCreatureEventAIVersion());
     return true;
 }

@@ -1,4 +1,9 @@
-build/*
+build/
+.directory
+.mailmap
 *.orig
-*.diff
 *.rej
+*~
+.hg/
+*.kdev*
+*.bak

@@ -69,12 +69,12 @@ BEGIN
     BEGIN
         BLOCK "080004b0"
         BEGIN
-            VALUE "FileDescription", "worldserver"
+            VALUE "FileDescription", "WorldServer"
             VALUE "FileVersion", STRFILEVER
-            VALUE "InternalName", "worldserver"
-            VALUE "LegalCopyright", "Copyright (C) 2008-2010"
+            VALUE "InternalName", "WorldServer"
+            VALUE "LegalCopyright", "Copyright (C) 2010-2011"
             VALUE "OriginalFilename", "worldserver.exe"
-            VALUE "ProductName", "worldserver"
+            VALUE "ProductName", "CactusEmu_WorldServer"
             VALUE "ProductVersion", STRPRODUCTVER
         END
     END

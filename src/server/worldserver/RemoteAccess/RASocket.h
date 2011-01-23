@@ -30,7 +30,7 @@
 #include "Common.h"
 #include <ace/Synch_Traits.h>
 
-#define RA_BUFF_SIZE 1024
+#define RA_BUFF_SIZE 2024
 
 class ISocketHandler;
 

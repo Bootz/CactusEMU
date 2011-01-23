@@ -47,9 +47,9 @@
 
 #ifdef _WIN32
 #include "ServiceWin32.h"
-char serviceName[] = "TrinityRealm";
-char serviceLongName[] = "Trinity realm service";
-char serviceDescription[] = "Massive Network Game Object Server";
+char serviceName[] = "CactusRealm";
+char serviceLongName[] = "Cactus realm service";
+char serviceDescription[] = "Massive Network Game Server";
 /*
  * -1 - not in service mode
  *  0 - stopped
@@ -174,7 +174,18 @@ extern int main(int argc, char **argv)
     sLog.outString("<Ctrl-C> to stop.\n");
     sLog.outString("Using configuration file %s.", cfg_file);
 
-    sLog.outDetail("%s (Library: %s)", OPENSSL_VERSION_TEXT, SSLeay_version(SSLEAY_VERSION));
+	sLog.outString( " ");
+    sLog.outString( "        ____ .                  ___ ");	            
+    sLog.outString( "      /\\'   _, \\              / \\  \\__ .  ");  
+    sLog.outString( "      \\ \\  \\ \\__\\     __       _.\\  ,_ \\  __  __.  ___. "); 
+    sLog.outString( "       \\ \\  \\/__/.  /'__`\\   /'__`\\  \\_//\\ '\\/\\ '\\/',__\\ ");
+    sLog.outString( "        \\ \\  \\_\\ '\\/\\ \\_\\.\\_/\\ \\__.\\  \\_\\.\\  \\_\\  \\\\__,`\\  ");
+    sLog.outString( "         \\ \\'____ /\\ \\__/.\\_\\ \\____\\\\_'__\\ \\_`____//\\__./    ");    
+    sLog.outString( "          \\/____/   \\/__/\\/_/\\/___/\\/__ _/ \\`____`/\\/__/   ");
+    sLog.outString( "        CatcusEmu 'Realm's First' TrinityCore Cataclysm Communtiy Release ");
+    sLog.outString( "                 == http://www.cactusemu.com ==  ");
+    
+	sLog.outDetail("%s (Library: %s)", OPENSSL_VERSION_TEXT, SSLeay_version(SSLEAY_VERSION));
 
 #if defined (ACE_HAS_EVENT_POLL) || defined (ACE_HAS_DEV_POLL)
     ACE_Reactor::instance(new ACE_Reactor(new ACE_Dev_Poll_Reactor(ACE::max_handles(), 1), 1), true);
@@ -211,7 +222,7 @@ extern int main(int argc, char **argv)
     sRealmList->Initialize(sConfig.GetIntDefault("RealmsStateUpdateDelay", 20));
     if (sRealmList->size() == 0)
     {
-        sLog.outError("No valid realms specified.");
+        sLog.outError("No valid realms have been specified.");
         return 1;
     }
 
@@ -225,7 +236,7 @@ extern int main(int argc, char **argv)
 
     if (acceptor.open(bind_addr, ACE_Reactor::instance(), ACE_NONBLOCK) == -1)
     {
-        sLog.outError("Trinity realm can not bind to %s:%d", bind_ip.c_str(), rmport);
+        sLog.outError("Cactus realm can not bind to %s:%d", bind_ip.c_str(), rmport);
         return 1;
     }
 
@@ -273,7 +284,7 @@ extern int main(int argc, char **argv)
         if (Prio)
         {
             if (SetPriorityClass(hProcess, HIGH_PRIORITY_CLASS))
-                sLog.outString("TrinityRealm process priority class set to HIGH");
+                sLog.outString("CactusEmu process priority class set to HIGH");
             else
                 sLog.outError("Can't set realmd process priority class.");
             sLog.outString();
@@ -336,7 +347,7 @@ bool StartDB()
     std::string dbstring = sConfig.GetStringDefault("LoginDatabaseInfo", "");
     if (dbstring.empty())
     {
-        sLog.outError("Database not specified");
+        sLog.outError("Database is not specified");
         return false;
     }
 
@@ -350,7 +361,7 @@ bool StartDB()
     //- Authserver has singlethreaded synchronous DB access, hence MYSQL_BUNDLE_ALL
     if (!LoginDatabase.Open(dbstring.c_str(), num_threads, MYSQL_BUNDLE_ALL))
     {
-        sLog.outError("Cannot connect to database");
+        sLog.outError("Cannot connect to a database");
         return false;
     }
 

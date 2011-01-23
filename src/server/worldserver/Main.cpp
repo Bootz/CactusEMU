@@ -39,9 +39,9 @@
 
 #ifdef _WIN32
 #include "ServiceWin32.h"
-char serviceName[] = "TrinityCore";
-char serviceLongName[] = "Trinity core service";
-char serviceDescription[] = "Massive Network Game Object Server";
+char serviceName[] = "Cactcus Emu";
+char serviceLongName[] = "Cactus Emu game emulation service";
+char serviceDescription[] = "Massive Network Game Emulator";
 /*
  * -1 - not in service mode
  *  0 - stopped
@@ -71,7 +71,7 @@ void usage(const char *prog)
         ,prog);
 }
 
-/// Launch the Trinity server
+/// Launch the Cactus server
 extern int main(int argc, char **argv)
 {
     ACE::init();

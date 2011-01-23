@@ -74,7 +74,7 @@ BEGIN
             VALUE "InternalName", "authserver"
             VALUE "LegalCopyright", "Copyright (C) 2008-2010"
             VALUE "OriginalFilename", "authserver.exe"
-            VALUE "ProductName", "authserver"
+            VALUE "ProductName", "CactusEMU_authserver"
             VALUE "ProductVersion", STRPRODUCTVER
         END
     END
