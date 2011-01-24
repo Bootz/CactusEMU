@@ -174,18 +174,7 @@ extern int main(int argc, char **argv)
     sLog.outString("<Ctrl-C> to stop.\n");
     sLog.outString("Using configuration file %s.", cfg_file);
 
-	sLog.outString( " ");
-    sLog.outString( "        ____ .                  ___ ");	            
-    sLog.outString( "      /\\'   _, \\              / \\  \\__ .  ");  
-    sLog.outString( "      \\ \\  \\ \\__\\     __       _.\\  ,_ \\  __  __.  ___. "); 
-    sLog.outString( "       \\ \\  \\/__/.  /'__`\\   /'__`\\  \\_//\\ '\\/\\ '\\/',__\\ ");
-    sLog.outString( "        \\ \\  \\_\\ '\\/\\ \\_\\.\\_/\\ \\__.\\  \\_\\.\\  \\_\\  \\\\__,`\\  ");
-    sLog.outString( "         \\ \\'____ /\\ \\__/.\\_\\ \\____\\\\_'__\\ \\_`____//\\__./    ");    
-    sLog.outString( "          \\/____/   \\/__/\\/_/\\/___/\\/__ _/ \\`____`/\\/__/   ");
-    sLog.outString( "        CatcusEmu 'Realm's First' TrinityCore Cataclysm Communtiy Release ");
-    sLog.outString( "                 == http://www.cactusemu.com ==  ");
-    
-	sLog.outDetail("%s (Library: %s)", OPENSSL_VERSION_TEXT, SSLeay_version(SSLEAY_VERSION));
+    sLog.outDetail("%s (Library: %s)", OPENSSL_VERSION_TEXT, SSLeay_version(SSLEAY_VERSION));
 
 #if defined (ACE_HAS_EVENT_POLL) || defined (ACE_HAS_DEV_POLL)
     ACE_Reactor::instance(new ACE_Reactor(new ACE_Dev_Poll_Reactor(ACE::max_handles(), 1), 1), true);
